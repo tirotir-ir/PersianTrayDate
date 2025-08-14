@@ -1,0 +1,1 @@
+namespace PersianTrayDate { public enum NumeralMode { Persian, Latin } }

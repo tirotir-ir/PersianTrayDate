@@ -1,0 +1,14 @@
+C:\Users\Tirotir\Downloads\PersianTrayDate_Ultimate_Final_HeaderPanel_TwoCellIcon\PersianTrayDate\bin\Release\net8.0-windows\PersianTrayDate.exe
+C:\Users\Tirotir\Downloads\PersianTrayDate_Ultimate_Final_HeaderPanel_TwoCellIcon\PersianTrayDate\bin\Release\net8.0-windows\PersianTrayDate.deps.json
+C:\Users\Tirotir\Downloads\PersianTrayDate_Ultimate_Final_HeaderPanel_TwoCellIcon\PersianTrayDate\bin\Release\net8.0-windows\PersianTrayDate.runtimeconfig.json
+C:\Users\Tirotir\Downloads\PersianTrayDate_Ultimate_Final_HeaderPanel_TwoCellIcon\PersianTrayDate\bin\Release\net8.0-windows\PersianTrayDate.dll
+C:\Users\Tirotir\Downloads\PersianTrayDate_Ultimate_Final_HeaderPanel_TwoCellIcon\PersianTrayDate\bin\Release\net8.0-windows\PersianTrayDate.pdb
+C:\Users\Tirotir\Downloads\PersianTrayDate_Ultimate_Final_HeaderPanel_TwoCellIcon\PersianTrayDate\obj\Release\net8.0-windows\PersianTrayDate.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tirotir\Downloads\PersianTrayDate_Ultimate_Final_HeaderPanel_TwoCellIcon\PersianTrayDate\obj\Release\net8.0-windows\PersianTrayDate.AssemblyInfoInputs.cache
+C:\Users\Tirotir\Downloads\PersianTrayDate_Ultimate_Final_HeaderPanel_TwoCellIcon\PersianTrayDate\obj\Release\net8.0-windows\PersianTrayDate.AssemblyInfo.cs
+C:\Users\Tirotir\Downloads\PersianTrayDate_Ultimate_Final_HeaderPanel_TwoCellIcon\PersianTrayDate\obj\Release\net8.0-windows\PersianTrayDate.csproj.CoreCompileInputs.cache
+C:\Users\Tirotir\Downloads\PersianTrayDate_Ultimate_Final_HeaderPanel_TwoCellIcon\PersianTrayDate\obj\Release\net8.0-windows\PersianTrayDate.dll
+C:\Users\Tirotir\Downloads\PersianTrayDate_Ultimate_Final_HeaderPanel_TwoCellIcon\PersianTrayDate\obj\Release\net8.0-windows\refint\PersianTrayDate.dll
+C:\Users\Tirotir\Downloads\PersianTrayDate_Ultimate_Final_HeaderPanel_TwoCellIcon\PersianTrayDate\obj\Release\net8.0-windows\PersianTrayDate.pdb
+C:\Users\Tirotir\Downloads\PersianTrayDate_Ultimate_Final_HeaderPanel_TwoCellIcon\PersianTrayDate\obj\Release\net8.0-windows\PersianTrayDate.genruntimeconfig.cache
+C:\Users\Tirotir\Downloads\PersianTrayDate_Ultimate_Final_HeaderPanel_TwoCellIcon\PersianTrayDate\obj\Release\net8.0-windows\ref\PersianTrayDate.dll
