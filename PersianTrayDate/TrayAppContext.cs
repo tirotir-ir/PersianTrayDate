@@ -41,7 +41,8 @@ namespace PersianTrayDate
             {
                 string exe = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
                 if (Config.Current.StartWithWindows) StartupManager.Enable(exe);
-            } catch { }
+            }
+            catch { }
 
             _tray = new NotifyIcon();
             _tray.Visible = true;
@@ -58,7 +59,7 @@ namespace PersianTrayDate
 
             _clockTimer = new System.Windows.Forms.Timer();
             _clockTimer.Interval = 30000;
-            _clockTimer.Tick += (s,e)=> UpdateTray();
+            _clockTimer.Tick += (s, e) => UpdateTray();
             _clockTimer.Start();
 
             _schedulerTimer = new System.Windows.Forms.Timer();
@@ -66,28 +67,38 @@ namespace PersianTrayDate
             _schedulerTimer.Tick += Scheduler_Tick;
             _schedulerTimer.Start();
 
-            Application.ApplicationExit += (s,e)=> Cleanup();
+            Application.ApplicationExit += (s, e) => Cleanup();
         }
 
         private ContextMenuStrip BuildMenu()
         {
-            var menu = new ContextMenuStrip();
+            var menu = new ContextMenuStrip
+            {
+                Font = new Font("Segoe UI", 9f),
+                RightToLeft = RightToLeft.Yes,  // ← راست‌چین
+                ShowImageMargin = false,        // ← ستون آیکن حذف شود تا متن دقیقاً از راست شروع شود
+                RenderMode = ToolStripRenderMode.System
+            };
+
             menu.Items.Add(new ToolStripMenuItem("نمایش امروز", null, Today_Click));
             menu.Items.Add(new ToolStripMenuItem("کپی تاریخ", null, Copy_Click));
             menu.Items.Add(new ToolStripMenuItem("چسباندن تاریخ (SendKeys)", null, PasteDate_Click));
             menu.Items.Add(new ToolStripMenuItem("تقویم…", null, Calendar_Click));
             menu.Items.Add(new ToolStripSeparator());
-            menu.Items.Add(new ToolStripMenuItem("تایمر…", null, Timer_Click) { Name="TimerSet" });
-            menu.Items.Add(new ToolStripMenuItem("لغو تایمر", null, TimerCancel_Click) { Name="TimerCancel", Enabled=false });
-            menu.Items.Add(new ToolStripMenuItem("آلارم…", null, Alarm_Click) { Name="AlarmSet" });
-            menu.Items.Add(new ToolStripMenuItem("لغو آلارم", null, AlarmCancel_Click) { Name="AlarmCancel", Enabled=false });
-            menu.Items.Add(new ToolStripMenuItem("سنووز ۵ دقیقه", null, (s,e)=> SnoozeAlarm(TimeSpan.FromMinutes(5))) { Name="Snooze5", Enabled=false });
-            menu.Items.Add(new ToolStripMenuItem("سنووز ۱۰ دقیقه", null, (s,e)=> SnoozeAlarm(TimeSpan.FromMinutes(10))) { Name="Snooze10", Enabled=false });
+
+            menu.Items.Add(new ToolStripMenuItem("تایمر…", null, Timer_Click) { Name = "TimerSet" });
+            menu.Items.Add(new ToolStripMenuItem("لغو تایمر", null, TimerCancel_Click) { Name = "TimerCancel", Enabled = false });
+            menu.Items.Add(new ToolStripMenuItem("آلارم…", null, Alarm_Click) { Name = "AlarmSet" });
+            menu.Items.Add(new ToolStripMenuItem("لغو آلارم", null, AlarmCancel_Click) { Name = "AlarmCancel", Enabled = false });
+            menu.Items.Add(new ToolStripMenuItem("سنووز ۵ دقیقه", null, (s, e) => SnoozeAlarm(TimeSpan.FromMinutes(5))) { Name = "Snooze5", Enabled = false });
+            menu.Items.Add(new ToolStripMenuItem("سنووز ۱۰ دقیقه", null, (s, e) => SnoozeAlarm(TimeSpan.FromMinutes(10))) { Name = "Snooze10", Enabled = false });
             menu.Items.Add(new ToolStripSeparator());
+
             var pomodoroMenu = new ToolStripMenuItem("پومودورو");
             pomodoroMenu.DropDownItems.Add("Start 25/5", null, PomodoroStart_Click);
             pomodoroMenu.DropDownItems.Add("Stop", null, PomodoroStop_Click);
             menu.Items.Add(pomodoroMenu);
+
             menu.Items.Add(new ToolStripMenuItem("کرنومتر…", null, Stopwatch_Click));
             menu.Items.Add(new ToolStripMenuItem("Import ICS…", null, ImportIcs_Click));
             menu.Items.Add(new ToolStripSeparator());
@@ -95,7 +106,35 @@ namespace PersianTrayDate
             menu.Items.Add(new ToolStripMenuItem("درباره", null, About_Click));
             menu.Items.Add(new ToolStripSeparator());
             menu.Items.Add(new ToolStripMenuItem("خروج", null, Exit_Click));
+
+            // ← اعمال راست‌چین روی تمام زیرمنوها و آیتم‌ها
+            ApplyRtlRecursive(menu);
+
             return menu;
+        }
+
+        // اعمال RTL روی کل زیرمنوها
+        private static void ApplyRtlRecursive(ContextMenuStrip menu)
+        {
+            menu.RightToLeft = RightToLeft.Yes;
+
+            foreach (ToolStripItem it in menu.Items)
+                ApplyRtlToItem(it);
+        }
+
+        private static void ApplyRtlToItem(ToolStripItem it)
+        {
+            it.RightToLeft = RightToLeft.Yes;
+
+            if (it is ToolStripMenuItem mi)
+            {
+                mi.RightToLeftAutoMirrorImage = true;
+                mi.DropDown.RightToLeft = RightToLeft.Yes;
+                mi.DropDownDirection = ToolStripDropDownDirection.Left; // فلش زیرمنو سمت چپ
+
+                foreach (ToolStripItem sub in mi.DropDownItems)
+                    ApplyRtlToItem(sub);
+            }
         }
 
         private void Scheduler_Tick(object sender, EventArgs e)
@@ -211,7 +250,7 @@ namespace PersianTrayDate
         private void PasteDate_Click(object s, EventArgs e)
         {
             CopyDateToClipboard();
-            try { SendKeys.SendWait("^v"); } catch {}
+            try { SendKeys.SendWait("^v"); } catch { }
         }
 
         private void Exit_Click(object s, EventArgs e)
@@ -365,7 +404,7 @@ namespace PersianTrayDate
 
         private void About_Click(object s, EventArgs e)
         {
-            MessageBox.Show("PersianTrayDate\nنمایش تاریخ شمسی در System Tray\ntirotir.ir", "About",
+            MessageBox.Show("PersianTrayDate\nنمایش تاریخ شمسی در نوار وظیفه \ntirotir.ir", "About",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -374,10 +413,8 @@ namespace PersianTrayDate
             try { _clockTimer?.Stop(); } catch { }
             try { _schedulerTimer?.Stop(); } catch { }
 
-            // جدا کردن ایونت‌ها برای اطمینان
             try { if (_tray != null) _tray.MouseClick -= Tray_MouseClick; } catch { }
 
-            // ترتیب صحیح: اول آیکن نوتیفای را خنثی کن، بعد پنهان و Dispose
             if (_tray != null)
             {
                 try { _tray.Icon = null; } catch { }
@@ -386,7 +423,6 @@ namespace PersianTrayDate
                 _tray = null;
             }
 
-            // سپس آیکن‌های کش را آزاد کن
             if (_iconCache != null)
             {
                 foreach (var kv in _iconCache)
@@ -396,13 +432,12 @@ namespace PersianTrayDate
                 _iconCache.Clear();
             }
 
-            try { _currentIcon?.Dispose(); } catch { }  // اگر جدا از کش نگه داشته شده
+            try { _currentIcon?.Dispose(); } catch { }
             _currentIcon = null;
 
             try { _hotkeyWin?.Close(); _hotkeyWin?.Dispose(); } catch { }
             _hotkeyWin = null;
         }
-
     }
 
     internal static class NotifyIconTextHelper

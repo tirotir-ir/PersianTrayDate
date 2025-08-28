@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tirotir\\Downloads\\PersianTrayDate_Ultimate_Final_HeaderPanel_TwoCellIcon\\PersianTrayDate\\PersianTrayDate.csproj",
+      "projectUniqueName": "C:\\Users\\Tirotir\\Documents\\GitHub\\PersianTrayDate\\PersianTrayDate\\PersianTrayDate.csproj",
       "projectName": "PersianTrayDate",
-      "projectPath": "C:\\Users\\Tirotir\\Downloads\\PersianTrayDate_Ultimate_Final_HeaderPanel_TwoCellIcon\\PersianTrayDate\\PersianTrayDate.csproj",
+      "projectPath": "C:\\Users\\Tirotir\\Documents\\GitHub\\PersianTrayDate\\PersianTrayDate\\PersianTrayDate.csproj",
       "packagesPath": "C:\\Users\\Tirotir\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tirotir\\Downloads\\PersianTrayDate_Ultimate_Final_HeaderPanel_TwoCellIcon\\PersianTrayDate\\obj\\",
+      "outputPath": "C:\\Users\\Tirotir\\Documents\\GitHub\\PersianTrayDate\\PersianTrayDate\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

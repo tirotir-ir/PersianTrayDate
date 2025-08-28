@@ -1,0 +1,5 @@
+C:\Users\Tirotir\Documents\GitHub\PersianTrayDate\PersianTrayDate\bin\Release\net8.0-windows\publish\PersianTrayDate.exe
+C:\Users\Tirotir\Documents\GitHub\PersianTrayDate\PersianTrayDate\bin\Release\net8.0-windows\publish\PersianTrayDate.dll
+C:\Users\Tirotir\Documents\GitHub\PersianTrayDate\PersianTrayDate\bin\Release\net8.0-windows\publish\PersianTrayDate.deps.json
+C:\Users\Tirotir\Documents\GitHub\PersianTrayDate\PersianTrayDate\bin\Release\net8.0-windows\publish\PersianTrayDate.runtimeconfig.json
+C:\Users\Tirotir\Documents\GitHub\PersianTrayDate\PersianTrayDate\bin\Release\net8.0-windows\publish\PersianTrayDate.pdb
